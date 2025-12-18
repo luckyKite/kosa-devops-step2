@@ -1,6 +1,6 @@
 # Step 2: Package the application into a Docker image
 # Use an official OpenJDK runtime as the base image
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17-jdk-slim
 
 # Set the working directory
 WORKDIR /app
