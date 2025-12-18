@@ -2,7 +2,7 @@ name: Spring boot docker image CI/CD
 
 on:
   push:
-    branches: [ main]
+    branches: [main]
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew bootJar
   
       - name: docker image 생성
-        run: docker build -t kosakosa/devops_step2:v1.0 .
+        run: docker build -t ${{secrets.DOCKER_USERNAME}}/devops_step2:v1.0 .
   
       - name: docker login
         uses: docker/login-action@v1
@@ -36,7 +36,7 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
   
       - name: docker image 허브에 저장
-        run: docker push kosakosa/devops_step2:v1.0
+        run: docker push ${{secrets.DOCKER_USERNAME}}/devops_step2:v1.0
         
   
   deploy:
@@ -52,5 +52,7 @@ jobs:
         password: ${{secrets.DOCKER_PASSWORD}}
        
     - name: docker images pull
-      run: docker pull kosakosa/devops_step2:v1.0
-      
+      run: docker pull ${{secrets.DOCKER_USERNAME}}/devops_step2:v1.0
+
+    - name: docker compose 실행
+      run: docker compose -f docker-compose_nginx.yml up   
