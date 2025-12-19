@@ -1,6 +1,7 @@
 #version: '3.1'
 #네트웍 브릿지 추가 함
-# 수정: hellow world ~~~~~
+# 수정1: hellow world ~~~~~
+# 수정2: hellow world ~~~~~
 
 services:
   nginx:
