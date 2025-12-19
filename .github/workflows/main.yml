@@ -59,8 +59,8 @@ jobs:
           name: my-artifact
           merge-multiple: false
           path: |
-            kosa-devops_step2/docker-compose_nginx.yml
-            kosa-devops_step2/nginx/nginx.conf
+            kosa-devops-step2/docker-compose_nginx.yml
+            kosa-devops-step2/nginx/nginx.conf
 
 
   deploy:
@@ -79,7 +79,7 @@ jobs:
     #     clean: true
 
     - name: 파일 다운로드
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v4
       with:
         name: my-artifact
         merge-multiple: false
