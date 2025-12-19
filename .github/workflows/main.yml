@@ -61,6 +61,7 @@ jobs:
             kosa-devops_step2/docker-compose_nginx.yml
             kosa-devops_step2/nginx/nginx.conf
 
+
   deploy:
     needs: build
     name: Deploy
