@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew bootJar
   
       - name: docker image 생성
-        run: docker build -t ${{secrets.DOCKER_USERNAME}}/devops_step2:v1.0 .
+        run: docker build -t ${{secrets.DOCKER_USERNAME}}/devops_step2:latest .
   
       - name: docker login
         uses: docker/login-action@v1
@@ -36,7 +36,7 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
   
       - name: docker image 허브에 저장
-        run: docker push ${{secrets.DOCKER_USERNAME}}/devops_step2:v1.0
+        run: docker push ${{secrets.DOCKER_USERNAME}}/devops_step2:latest
         
   
   deploy:
