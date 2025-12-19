@@ -10,6 +10,12 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: 폴더 정리
+        run: rm -rf kosa-devops-step2
+
+      - name: 소스 복사
+        run: git clone https://github.com/masungil70/kosa-devops-step2
+
       - uses: actions/checkout@v3
       
       # - name: Setup JDK17
@@ -17,9 +23,11 @@ jobs:
       #   with: 
       #     java-version: '17'
       #     distribution: 'temurin'
-  
+      - name: 경로 변경
+        run: cd kosa-devops-step2
+
       - name: gradlew 파일 실행 권한 설정
-        run: chmod +x gradlew
+        run: chmod +x kosa-devops-step2/gradlew
   
       - name: Test with gradle
         run: ./gradlew --info test
